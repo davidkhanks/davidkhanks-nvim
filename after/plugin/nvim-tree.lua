@@ -8,6 +8,14 @@ vim.opt.termguicolors = true
 -- pass to setup along with your other options
 require("nvim-tree").setup({
     auto_close = true,
+    filters = {
+        git_ignored = true,
+        dotfiles = false,
+        git_clean = false,
+        no_buffer = false,
+        custom = { "^.git$" },
+        exclude = { "local.py", ".devhome" },
+    },
     git = {
         show_on_open_dirs = false,
     },
