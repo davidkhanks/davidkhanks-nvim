@@ -9,7 +9,7 @@ vim.keymap.set("n", "<leader>wh", "<C-W><C-h>") -- Move to window left
 vim.keymap.set("n", "<leader>wl", "<C-W><C-l>") -- Move to window riqht
 vim.keymap.set("n", "<leader>wj", "<C-W><C-J>") -- Move to window down
 vim.keymap.set("n", "<leader>wk", "<C-W><C-K>") -- Move to window up
-vim.keymap.set("n", "<leader>wq", "<C-W>q") -- Close window
+vim.keymap.set("n", "<leader>wd", "<C-W>q") -- Close window
 
 -- File commands
 vim.keymap.set('n', '<leader>fs', ':write<CR>')
