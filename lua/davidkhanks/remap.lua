@@ -59,33 +59,44 @@ vim.keymap.set("n", "<leader>so", function()
     vim.cmd("so")
 end)
 
+-- Go to last buffer
+vim.keymap.set("n", "<leader><Tab>", function()
+    vim.cmd("edit #")
+end)
+
+-- nvim-tree custom bindings
+-- Jump to tree
 vim.keymap.set("n", "<leader>pt", function()
     vim.cmd("NvimTreeFocus")
 end)
 
+-- Close the tree
 vim.keymap.set("n", "<leader>pq", function()
     vim.cmd("NvimTreeClose")
 end)
 
+-- Collapse the tree
 vim.keymap.set("n", "<leader>ph", function()
     vim.cmd("NvimTreeCollapse")
 end)
 
+-- Collapse the tree except for where there are open buffers
 vim.keymap.set("n", "<leader>pH", function()
     vim.cmd("NvimTreeCollapseKeepBuffers")
 end)
 
-
+-- Make the tree window bigger by 10
 vim.keymap.set("n", "<leader>p]", function()
     vim.cmd("NvimTreeResize +10")
 end)
 
 
+-- Make the tree window smaller by 10
 vim.keymap.set("n", "<leader>p[", function()
     vim.cmd("NvimTreeResize -10")
 end)
 
-
+-- Jump to tree and go to currently open buffer
 vim.keymap.set("n", "<leader>ff", function()
     vim.cmd("NvimTreeFindFile")
 end)
