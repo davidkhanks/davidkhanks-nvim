@@ -30,6 +30,7 @@ require("nvim-tree").setup({
     },
 })
 
+-- Credit to @marvinth01: https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close#marvinth01
 vim.api.nvim_create_autocmd("QuitPre", {
   callback = function()
     local tree_wins = {}
