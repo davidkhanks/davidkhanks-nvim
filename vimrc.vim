@@ -23,6 +23,7 @@ let s:comment_map = {
     \   "ahk": ';',
     \   "vim": '"',
     \   "tex": '%',
+    \   "terraform": '#',
     \ }
 
 function! ToggleComment()
@@ -41,7 +42,8 @@ function! ToggleComment()
             end
         end
     else
-        echo "No comment leader found for filetype"
+        echo "No comment leader found for filetype: "
+        echo &filetype
     end
 endfunction
 
