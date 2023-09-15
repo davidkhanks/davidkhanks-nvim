@@ -67,4 +67,7 @@ return require('packer').startup(function(use)
     },
   }
 
+  -- Dressing up input windows
+  use 'stevearc/dressing.nvim'
+
 end)
