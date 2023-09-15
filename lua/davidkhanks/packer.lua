@@ -32,6 +32,15 @@ return require('packer').startup(function(use)
   -- Git side bar markers
   use 'lewis6991/gitsigns.nvim'
 
+  -- Git conflict visualizer
+  use {
+      'akinsho/git-conflict.nvim', 
+      tag = "*", 
+      config = function()
+          require('git-conflict').setup()
+      end
+  }
+
   -- Toggles opposite values ie true -> false
   use { 'nguyenvukhang/nvim-toggler' }
 

@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/Users/davidhanks/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["git-conflict.nvim"] = {
+    loaded = true,
+    path = "/Users/davidhanks/.local/share/nvim/site/pack/packer/start/git-conflict.nvim",
+    url = "https://github.com/akinsho/git-conflict.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/davidhanks/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
