@@ -79,4 +79,7 @@ return require('packer').startup(function(use)
   -- Dressing up input windows
   use 'stevearc/dressing.nvim'
 
+  -- Terminal manager
+  use {"akinsho/toggleterm.nvim", tag = '*'}
+
 end)

@@ -8,6 +8,7 @@ vim.keymap.set("n", "<leader>ws", "<C-W><C-s>") -- Split horizontally
 vim.keymap.set("n", "<leader>wh", "<C-W><C-h>") -- Move to window left
 vim.keymap.set("n", "<leader>wl", "<C-W><C-l>") -- Move to window riqht
 vim.keymap.set("n", "<leader>wj", "<C-W><C-J>") -- Move to window down
+vim.keymap.set("n", "<C-j>", "<C-W><C-J>") -- Move to window down
 vim.keymap.set("n", "<leader>wk", "<C-W><C-K>") -- Move to window up
 vim.keymap.set("n", "<leader>wd", "<C-W>q") -- Close window
 
@@ -43,8 +44,8 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
