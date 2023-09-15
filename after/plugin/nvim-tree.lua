@@ -18,6 +18,13 @@ require("nvim-tree").setup({
     git = {
         show_on_open_dirs = false,
     },
+    actions = {
+        open_file = {
+            window_picker = {
+                chars = "JKL1234567890"
+            },
+        },
+    },
     diagnostics = {
         enable = true,
         show_on_dirs = true,
