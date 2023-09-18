@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  use 'christoomey/vim-tmux-navigator'
+
   -- Syntax highlighting
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
@@ -40,6 +42,17 @@ return require('packer').startup(function(use)
           require('git-conflict').setup()
       end
   }
+
+  -- Sidebar tree viewer
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional
+    },
+  }
+
+  -- Dressing up input windows
+  use 'stevearc/dressing.nvim'
 
   -- Toggles opposite values ie true -> false
   use { 'nguyenvukhang/nvim-toggler' }
@@ -67,19 +80,5 @@ return require('packer').startup(function(use)
 		  {'rafamadriz/friendly-snippets'},  -- Required
 	  }
   }
-
-  -- Sidebar tree viewer
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional
-    },
-  }
-
-  -- Dressing up input windows
-  use 'stevearc/dressing.nvim'
-
-  -- Terminal manager
-  use {"akinsho/toggleterm.nvim", tag = '*'}
 
 end)
