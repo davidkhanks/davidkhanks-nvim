@@ -11,6 +11,7 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+
 		-- local transform_mod = require("telescope.actions.mt").transform_mod
 		--
 		-- local trouble = require("trouble")
@@ -34,7 +35,10 @@ return {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
-						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						-- ["<C-q>"] = function(prompt_bufnr)
+						-- 	actions.open_qflist(prompt_bufnr)
+						-- end,
+						-- ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 						-- ["<C-t>"] = trouble_telescope.open,
 					},
 				},
@@ -60,7 +64,14 @@ return {
 			"<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<CR>",
 			{ desc = "See currently open buffers" }
 		)
-		keymap.set("n", "<leader>sp", "<cmd>Telescope live_grep<CR>", { desc = "Find string in cwd" })
+
+		keymap.set(
+			"n",
+			"<leader>sp",
+			"<cmd>lua require('telescope.builtin').live_grep({ prompt_title = 'Project Grep' })<CR>",
+			{ noremap = true, silent = true, desc = "Find string in cwd" }
+		)
+
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<CR>", { desc = "Find string under cursor in cwd" })
 		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Find todos" })
 	end,
