@@ -12,7 +12,7 @@ opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
 -- Line wrap
-opt.wrap = false
+opt.wrap = true
 
 -- Do not use swap files for unsaved buffers
 opt.swapfile = false
@@ -43,7 +43,11 @@ opt.isfname:append("@-@")
 -- turn on termguicolors for onedark colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
-opt.background = "dark" -- colorschemes that can be light or dark will be dark
+
+-- colorschemes that can be light or dark will be dark
+opt.background = "dark"
+
+-- Always show the sign column
 opt.signcolumn = "yes"
 
 -- backspace
