@@ -45,18 +45,25 @@ return {
 		-- 	harpoon.ui:toggle_quick_menu(harpoon:list())
 		-- end, { desc = "Harpoon quick list" })
 
-		vim.keymap.set("n", "<leader>1", function()
-			harpoon:list():select(1)
-		end, { desc = "Harpoon File 1" })
-		vim.keymap.set("n", "<leader>2", function()
-			harpoon:list():select(2)
-		end, { desc = "Harpoon File 2" })
-		vim.keymap.set("n", "<leader>3", function()
-			harpoon:list():select(3)
-		end, { desc = "Harpoon File 3" })
-		vim.keymap.set("n", "<leader>4", function()
-			harpoon:list():select(4)
-		end, { desc = "Harpoon File 4" })
+		-- Loop through 1-9 and set key maps for <leader>1 - <leader>9 for quick selecting files
+		for i = 1, 9 do
+			vim.keymap.set("n", "<leader>" .. i, function()
+				harpoon:list():select(i)
+			end, { desc = "Harpoon File " .. i })
+		end
+
+		-- vim.keymap.set("n", "<leader>1", function()
+		-- 	harpoon:list():select(1)
+		-- end, { desc = "Harpoon File 1" })
+		-- vim.keymap.set("n", "<leader>2", function()
+		-- 	harpoon:list():select(2)
+		-- end, { desc = "Harpoon File 2" })
+		-- vim.keymap.set("n", "<leader>3", function()
+		-- 	harpoon:list():select(3)
+		-- end, { desc = "Harpoon File 3" })
+		-- vim.keymap.set("n", "<leader>4", function()
+		-- 	harpoon:list():select(4)
+		-- end, { desc = "Harpoon File 4" })
 
 		-- Toggle previous & next buffers stored within Harpoon list
 		vim.keymap.set("n", "<C-S-P>", function()
