@@ -126,6 +126,7 @@ return {
 					capabilities = capabilities,
 					filetypes = {
 						"html",
+						"htm",
 						"typescriptreact",
 						"javascriptreact",
 						"css",
@@ -134,6 +135,12 @@ return {
 						"less",
 						"svelte",
 					},
+				})
+			end,
+			["html"] = function()
+				lspconfig["html"].setup({
+					capabilities = capabilities,
+					filetypes = { "html", "htm" }, -- Ensure .htm is included
 				})
 			end,
 			["lua_ls"] = function()

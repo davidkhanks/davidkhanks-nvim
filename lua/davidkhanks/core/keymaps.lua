@@ -61,10 +61,11 @@ vim.keymap.set("n", "Q", "<nop>", { desc = "No Op" })
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "Start new tmux session" })
 -- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
+-- Location list commands. Need to play with this more before deciding what to set these as
 -- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 -- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+-- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+-- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Quickfixlist next / previous
 vim.keymap.set("n", "<C-n>", "<cmd>cn<CR>", { noremap = true, silent = true, desc = "Next Quickfixlist entry" })
@@ -91,6 +92,13 @@ end, { desc = "Source the current file" })
 vim.keymap.set("n", "<leader><Tab>", function()
 	vim.cmd("edit #")
 end, { desc = "Jump to last buffer" })
+
+vim.keymap.set(
+	"n",
+	"<leader>jq",
+	":%!jq .<CR>",
+	{ noremap = true, silent = true, desc = "Prettify entire file using jq" }
+)
 
 -- telescope
 -- vim.keymap.set('n', '<leader>pf', "<cmd>Telescope find_files<CR>")
