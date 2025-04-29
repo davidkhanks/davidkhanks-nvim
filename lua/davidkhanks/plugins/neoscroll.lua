@@ -6,10 +6,10 @@ return {
 		NeoScroll.setup({})
 		local keymap = {
 			["<C-u>"] = function()
-				NeoScroll.ctrl_u({ duration = 150 })
+				NeoScroll.ctrl_u({ duration = 25 })
 			end,
 			["<C-d>"] = function()
-				NeoScroll.ctrl_d({ duration = 150 })
+				NeoScroll.ctrl_d({ duration = 25 })
 			end,
 			["<C-b>"] = function()
 				NeoScroll.ctrl_b({ duration = 450 })
