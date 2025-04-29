@@ -59,7 +59,7 @@ return {
 				lualine_c = {
 					{
 						"filename",
-						path = 1,
+						path = 1, -- Full path for active window
 					},
 				},
 				lualine_x = {
@@ -71,6 +71,14 @@ return {
 					{ "encoding" },
 					{ "fileformat" },
 					{ "filetype" },
+				},
+			},
+			inactive_sections = {
+				lualine_c = {
+					{
+						"filename",
+						path = 1, -- Full path for inactive windows too
+					},
 				},
 			},
 		})
