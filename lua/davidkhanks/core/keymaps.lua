@@ -93,11 +93,20 @@ vim.keymap.set("n", "<leader><Tab>", function()
 	vim.cmd("edit #")
 end, { desc = "Jump to last buffer" })
 
+-- Format current json file with jq and replace it in buffer
 vim.keymap.set(
 	"n",
 	"<leader>jq",
 	":%!jq .<CR>",
 	{ noremap = true, silent = true, desc = "Prettify entire file using jq" }
+)
+
+-- Clear the highlighted text in a buffer after using / search
+vim.keymap.set(
+	"n",
+	"<leader>ch",
+	"<Esc>:nohlsearch<CR>",
+	{ noremap = true, silent = true, desc = "Clear vim search highlights" }
 )
 
 -- telescope
