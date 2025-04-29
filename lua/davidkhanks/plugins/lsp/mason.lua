@@ -30,6 +30,7 @@ return {
 			ensure_installed = {
 				"cssls",
 				"emmet_ls",
+				"gopls",
 				"graphql",
 				"html",
 				"lua_ls",
