@@ -17,7 +17,23 @@ and it is used for some of the telescope commands to find strings.
 
 ### Linux (Debian)
 
+Note that as of Apr 2025 apt install uses an older version of NeoVim
+
+It might be advisable to install homebrew on your linux install and use it to get neovim
+
+either install neovim via apt:
+
 `sudo apt install neovim`
+
+or install homebrew:
+
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+
+and then install neovim:
+
+`brew install neovim`
+
+install ripgrep which is used for text search across files:
 
 `sudo apt install ripgrep`
 
@@ -56,16 +72,15 @@ files that change on disk, etc.
 
 ### Running Lazy
 
-Lazy starts and runs automatically
+Lazy starts and runs automatically the first time you start neovim with the new
+config files in place.
 
 `davidkhanks.lazy` will run the Lazy package manager which will install the plugins
 that are configured in the plugins directory. You can see in that it will run the
 `davidkhanks.plugins` which will look for a lua table in any of the files in that dir.
 
 This will install some oft used dependencies so we don't need to explicitly install them.
-The rest of the plugins are configured in their
-
-respective files.
+The rest of the plugins are configured in their respective files.
 
 You can see the basic format of a plugin config is to return a table `{}` that contains
 the github short link and a config function. Optionally you can give a commit hash to pin
@@ -99,8 +114,9 @@ Really quick rundown of what each plugin does
 - Vim-maximizer: Allows for easier window maximization when using split windows in NeoVim
 - Which-key: A plugin that uses the defined descriptions for key maps to help you know what key does what after pressing <leader>
 
-Additionally, I have LSP related plugins in their own directory. LSP (Language Server Protocol) is what VSCode uses for to parse
-and understand the code in a project. It is what allows for things like jumpt to definition, etc.
+Additionally, I have LSP related plugins in their own directory. LSP (Language Server Protocol) is what VSCode uses to parse
+and understand the code in a project. It is what allows for things like jumpt to definition, etc and is used by NeoVim to
+do the same thing.
 
 - Lspconfig: The official NeoVim LSP plugin that allows for various niceties in your editing environment
 - mason: an LSP specific package manager. You can install all of them manually or you can have Mason do it for you.
@@ -113,9 +129,60 @@ Nvim-tree, which I like to have to see where I am at in a project (netrw is tras
 That allows for jumping between tmux panes and nvim windows seemless by leveraging <C-h>, <C-j>, <C-k>, and <C-l>. It's companion is installed
 as a tmux plugin and without it I would not be using NeoVim.
 
-Everything is is super nice and I don't want to live without them, but I could if I had to.
-
 ## Tmux integration
 
 I would only recommend even using this config if you are going to do so with tmux. My tmux config is located here:
 https://gist.github.com/davidkhanks/3530f1bca29cf94119fc9dadb2fbf625
+
+The main important thing to note with the tmux config is that it installs the vim-tmux-navigator which is what allows
+navigation between any tmux pane and neovim by using ctrl + h,j,k,l
+
+The config should install the tmux plugin manager automatically after the config file is in place. It needs to be in
+your home directory:
+
+`~/.tmux.conf`
+
+You can check that the plugin manager was installed by running:
+
+`ls ~/.tmux/plugins/tpm`
+
+You should see `scripts`, `bin`, and `tpm` directories
+
+If you don't you can install it manually:
+
+`git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+
+Make sure at this point to start a new tmux session or reload the config and then press your leader (ctrl+b) and I
+
+You should see something like:
+
+`Installing "tmux-plugins/tpm"`
+
+at which point you should be good.
+
+### Tmux alternate bindings and points of interest
+
+I have rebound a few things to make them easier to remember. To split the current pane and make a new one use:
+
+`ctrl + b` then `|`
+
+and to split horizontally:
+
+`ctrl + b` then `-`
+
+To kill a pane:
+
+`ctrl + b` then `x`
+
+You may notice that I have unbound and then rebound this action to `x` and that is to prevent the confirmation
+from being presented every time.
+
+To maximize the current pane use:
+
+`ctrl + b` then `m`
+
+and then to bring it back to it's original state simply do:
+
+`ctrl + b` then `m`
+
+again.
