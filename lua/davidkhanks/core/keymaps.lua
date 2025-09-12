@@ -72,6 +72,14 @@ vim.keymap.set("n", "<C-n>", "<cmd>cn<CR>", { noremap = true, silent = true, des
 vim.keymap.set("n", "<C-p>", "<cmd>cp<CR>", { noremap = true, silent = true, desc = "Prev Quickfixlist entry" })
 vim.keymap.set("n", "<C-q>", "<cmd>cclose<CR>", { noremap = true, silent = true, desc = "close Quickfixlist" })
 
+-- Set indent controls to be easier to use
+-- Visual mode tab to indent and unindent
+vim.keymap.set("v", "<Tab>", ">gv")
+vim.keymap.set("v", "<S-Tab>", "<gv")
+
+vim.keymap.set("v", ".", ">gv")
+vim.keymap.set("v", ",", "<gv")
+
 -- Replace all instances of current word
 vim.keymap.set(
 	"n",
@@ -79,6 +87,9 @@ vim.keymap.set(
 	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 	{ desc = "Replace current word" }
 )
+
+-- Replay the most recently executed macro
+vim.keymap.set("n", "<leader>rm", "@@", { desc = "Replay last macro" })
 
 -- Set current file to be executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Set executable file permissions" })
@@ -99,6 +110,26 @@ vim.keymap.set(
 	"<leader>jq",
 	":%!jq .<CR>",
 	{ noremap = true, silent = true, desc = "Prettify entire file using jq" }
+)
+
+-- Format selection with jq
+vim.keymap.set(
+	"v",
+	"<leader>jq",
+	":'<,'>!jq .<CR>",
+	{ noremap = true, silent = true, desc = "Prettify visual selection using jq" }
+)
+
+-- Convert python dict as valid JSON
+vim.keymap.set(
+	"v",
+	"<leader>pj",
+	":'<,'>!python3 -c \"import ast, json, sys; print(json.dumps(ast.literal_eval(sys.stdin.read())))\"<CR>",
+	{
+		noremap = true,
+		silent = true,
+		desc = "Convert Python dict to JSON",
+	}
 )
 
 -- Clear the highlighted text in a buffer after using / search
