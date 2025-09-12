@@ -16,5 +16,10 @@ return {
 			-- for commenting tsx, jsx, svelte, html files
 			pre_hook = ts_context_commentstring.create_pre_hook(),
 		})
+		-- Yank and comment visual block
+		vim.keymap.set("v", "<leader>yc", function()
+			vim.cmd("normal! y") -- yank the selection
+			require("Comment.api").toggle.linewise("visual")
+		end, { desc = "Yank and comment visual block" })
 	end,
 }
